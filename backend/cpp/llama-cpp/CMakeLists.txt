@@ -16,9 +16,16 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     link_directories("${HOMEBREW_DEFAULT_PREFIX}/lib")
     include_directories("${HOMEBREW_DEFAULT_PREFIX}/include")
 endif()
+# >>>>
+link_directories("/usr/lib/x86_64-linux-gnu")
+include_directories("/usr/include")
+# <<<<
 
 find_package(absl CONFIG REQUIRED)
-find_package(Protobuf CONFIG REQUIRED)
+# >>>>
+#find_package(Protobuf CONFIG REQUIRED)
+find_package(Protobuf REQUIRED)
+# <<<<
 find_package(gRPC CONFIG REQUIRED)
 
 find_program(_PROTOBUF_PROTOC protoc)
